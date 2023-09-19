@@ -73,12 +73,14 @@ describe('Validate Schema', function () {
         });
 
         it('keeps true or false', function () {
-            const post = models.Post.forge(testUtils.DataGenerator.forKnex.createPost({slug: 'test', featured: true}));
+            const post = models.Post.forge(testUtils.DataGenerator.forKnex.createPost({slug: 'test', featured: true, news: true}));
             post.get('featured').should.eql(true);
+            post.get('news').should.eql(true);
 
             return validateSchema('posts', post, {method: 'insert'})
                 .then(function () {
                     post.get('featured').should.eql(true);
+                    post.get('news').should.eql(true);
                 });
         });
     });

@@ -630,7 +630,9 @@ export default class EditorController extends Controller {
         const startTime = Date.now();
 
         try {
+            console.log("just before save", post, post.news)
             yield post.save(options);
+            console.log("just after save", post, post.news)
 
             // log if a save is slow
             if (this.config.sentry_dsn && (Date.now() - startTime > 2000)) {

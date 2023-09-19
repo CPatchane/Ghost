@@ -13,6 +13,7 @@ const getCoverImage = require('./cover-image');
 const getCreatorTwitter = require('./creator-url');
 const getDescription = require('./description');
 const getExcerpt = require('./excerpt');
+const getNews = require('./is-news');
 const getImageDimensions = require('./image-dimensions');
 const getKeywords = require('./keywords');
 const getModifiedDate = require('./modified-date');
@@ -39,6 +40,7 @@ function getMetaData(data, root) {
         metaTitle: getTitle(data, root),
         metaDescription: getDescription(data, root) || null,
         excerpt: getExcerpt(data),
+        news: getNews(data),
         coverImage: {
             url: getCoverImage(data)
         },

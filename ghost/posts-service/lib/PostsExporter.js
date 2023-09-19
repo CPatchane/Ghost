@@ -89,6 +89,7 @@ class PostsExporter {
                 updated_at: post.get('updated_at'),
                 published_at: published ? post.get('published_at') : null,
                 featured: post.get('featured'),
+                news: post.get('news'),
                 tags: post.related('tags').map(tag => tag.get('name')).join(', '),
                 post_access: this.postAccessToString(post),
                 email_recipients: email ? this.humanReadableEmailRecipientFilter(email?.get('recipient_filter'), labels, tiers) : null,

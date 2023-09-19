@@ -214,12 +214,12 @@ module.exports = class MembersCSVImporter {
 
                     if (stripeCustomerId) {
                         if (row.import_tier) {
-                            const {isNewStripePrice, stripePriceId} = await this._stripeUtils.forceStripeSubscriptionToProduct({
+                            const {newstripePrice, stripePriceId} = await this._stripeUtils.forceStripeSubscriptionToProduct({
                                 customer_id: stripeCustomerId,
                                 product_id: importTierId
                             }, options);
 
-                            if (isNewStripePrice) {
+                            if (newstripePrice) {
                                 archivableStripePriceIds.push(stripePriceId);
                             }
                         }

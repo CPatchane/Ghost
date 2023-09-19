@@ -22,6 +22,7 @@ const expectedProperties = {
         'feature_image_alt',
         'feature_image_caption',
         'featured',
+        'news',
         'visibility',
         'created_at',
         'updated_at',

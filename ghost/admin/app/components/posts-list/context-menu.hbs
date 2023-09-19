@@ -7,6 +7,19 @@
             </button>
         </li>
     {{/if}}
+    {{#if this.shouldMakeNewsSelection }}
+        <li>
+            <button class="mr2" type="button" {{on "click" this.makeNewsPosts}}>
+                <span>{{svg-jar "star" class="mb1"}}Make it a news</span>
+            </button>
+        </li>
+    {{else}}
+            <li>
+            <button class="mr2" type="button" {{on "click" this.unmakeNewsPosts}}>
+                <span>{{svg-jar "star" class="mb1"}}Unmake it a news</span>
+            </button>
+        </li>
+    {{/if}}
     {{#if this.canFeatureSelection}}
         {{#if this.shouldFeatureSelection }}
             <li>

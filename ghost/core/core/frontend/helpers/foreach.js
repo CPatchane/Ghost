@@ -31,12 +31,12 @@ module.exports = function foreach(items, options) {
         if (Object.values(items).length > 0 && checks.isPost(Object.values(items)[0])) {
             visibility = visibility || 'all';
         }
-    } 
+    }
 
-    if (_.isArray(items) && items.length > 0 && checks.isNewsletter(items[0])) {
+    if (_.isArray(items) && items.length > 0 && checks.newsletter(items[0])) {
         visibility = visibility || 'all';
     } else if (_.isObject(items) && _.isArray(Object.values(items))) {
-        if (Object.values(items).length > 0 && checks.isNewsletter(Object.values(items)[0])) {
+        if (Object.values(items).length > 0 && checks.newsletter(Object.values(items)[0])) {
             visibility = visibility || 'all';
         }
     }

@@ -10,6 +10,7 @@ export default Factory.extend({
     customTemplate: null,
     description(i) { return `Title for post ${i}.`; },
     featured: false,
+    news: false,
     featureImage(i) { return `/content/images/2015/10/post-${i}.jpg`; },
     html(i) { return `<p>HTML for post ${i}.</p>`; },
     visibility: 'public',

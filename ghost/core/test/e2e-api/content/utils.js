@@ -21,6 +21,7 @@ const expectedProperties = {
         'feature_image_alt',
         'feature_image_caption',
         'featured',
+        'news',
         'visibility',
         'email_segment',
         'created_at',

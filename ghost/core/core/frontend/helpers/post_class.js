@@ -10,6 +10,7 @@ module.exports = function post_class() { // eslint-disable-line camelcase
 
     const tags = this.post && this.post.tags ? this.post.tags : this.tags || [];
     const featured = this.post && this.post.featured ? this.post.featured : this.featured || false;
+    const news = this.post && this.post.news ? this.post.news : this.news || false;
     const image = this.post && this.post.feature_image ? this.post.feature_image : this.feature_image || false;
     const page = this.post && this.post.page ? this.post.page : this.page || false;
 
@@ -21,6 +22,10 @@ module.exports = function post_class() { // eslint-disable-line camelcase
 
     if (featured) {
         classes.push('featured');
+    }
+
+    if (news) {
+        classes.push('news');
     }
 
     if (!image) {

@@ -75,6 +75,16 @@ export default class PostsContextMenu extends Component {
     }
 
     @action
+    async makeNewsPosts() {
+        this.menu.performTask(this.makeNewsPostsTask);
+    }
+
+    @action
+    async unmakeNewsPosts() {
+        this.menu.performTask(this.unmakeNewsPostsTask);
+    }
+
+    @action
     async featurePosts() {
         this.menu.performTask(this.featurePostsTask);
     }
@@ -376,6 +386,56 @@ export default class PostsContextMenu extends Component {
     }
 
     @task
+    *makeNewsPostsTask() {
+        const updatedModels = this.selectionList.availableModels;
+        yield this.performBulkEdit('makeNews');
+
+        // Update the models on the client side
+        for (const post of updatedModels) {
+            // We need to do it this way to prevent marking the model as dirty
+            this.store.push({
+                data: {
+                    id: post.id,
+                    type: this.type,
+                    attributes: {
+                        news: true
+                    }
+                }
+            });
+        }
+
+        // Remove posts that no longer match the filter
+        this.updateFilteredPosts();
+
+        return true;
+    }
+
+    @task
+    *unmakeNewsPostsTask() {
+        const updatedModels = this.selectionList.availableModels;
+        yield this.performBulkEdit('unmakeNews');
+
+        // Update the models on the client side
+        for (const post of updatedModels) {
+            // We need to do it this way to prevent marking the model as dirty
+            this.store.push({
+                data: {
+                    id: post.id,
+                    type: this.type,
+                    attributes: {
+                        news: false
+                    }
+                }
+            });
+        }
+
+        // Remove posts that no longer match the filter
+        this.updateFilteredPosts();
+
+        return true;
+    }
+
+    @task
     *copyPostsTask() {
         try {
             const result = yield this.performCopy();
@@ -431,6 +491,16 @@ export default class PostsContextMenu extends Component {
             }
         }
         return featuredCount <= this.selectionList.availableModels.length / 2;
+    }
+
+    get shouldMakeNewsSelection() {
+        let newsCount = 0;
+        for (const m of this.selectionList.availableModels) {
+            if (m.news) {
+                newsCount += 1;
+            }
+        }
+        return newsCount <= this.selectionList.availableModels.length / 2;
     }
 
     get canFeatureSelection() {

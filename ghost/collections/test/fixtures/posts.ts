@@ -5,6 +5,7 @@ export const posts = [{
     slug: 'post-1',
     tags: [],
     featured: false,
+    news: false,
     created_at: new Date('2023-03-15T07:19:07.447Z'),
     updated_at: new Date('2023-03-15T07:19:07.447Z'),
     published_at: new Date('2023-03-15T07:19:07.447Z')
@@ -15,6 +16,7 @@ export const posts = [{
     slug: 'post-2',
     tags: [],
     featured: false,
+    news: false,
     created_at: new Date('2023-04-05T07:20:07.447Z'),
     updated_at: new Date('2023-04-05T07:20:07.447Z'),
     published_at: new Date('2023-04-05T07:20:07.447Z')
@@ -25,6 +27,7 @@ export const posts = [{
     slug: 'featured-post-3',
     tags: [],
     featured: true,
+    news: true,
     created_at: new Date('2023-05-25T07:21:07.447Z'),
     updated_at: new Date('2023-05-25T07:21:07.447Z'),
     published_at: new Date('2023-05-25T07:21:07.447Z')
@@ -35,6 +38,7 @@ export const posts = [{
     slug: 'featured-post-4',
     tags: [],
     featured: true,
+    news: true,
     created_at: new Date('2023-05-15T07:21:07.447Z'),
     updated_at: new Date('2023-05-15T07:21:07.447Z'),
     published_at: new Date('2023-05-15T07:21:07.447Z')

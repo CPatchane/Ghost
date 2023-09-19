@@ -61,6 +61,7 @@ describe('ModelToDomainEventInterceptor', function () {
             attributes: {
                 status: 'draft',
                 featured: false,
+                news: false,
                 published_at: new Date()
             }
         });
@@ -97,10 +98,12 @@ describe('ModelToDomainEventInterceptor', function () {
             attributes: {
                 status: 'draft',
                 featured: false,
+                news: false,
                 published_at: new Date()
             },
             _previousAttributes: {
                 status: 'published',
+                news: false,
                 featured: true
             },
             relations: {

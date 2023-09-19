@@ -85,7 +85,35 @@ function getPostSchema(metaData, data) {
 
     const context = data.page ? 'page' : 'post';
 
-    schema = {
+    schema = metaData.news ? {
+        '@context': 'https://schema.org',
+        '@type': 'NewsArticle',
+        mainEntityOfPage: {
+            '@type': 'WebPage',
+            '@id': metaData.url
+        },
+        headline: escapeExpression(metaData.metaTitle).substring(0, 100),
+        alternativeHeadline: description,
+        description: description,
+        image: schemaImageObject(metaData.coverImage),
+        datePublished: metaData.publishedDate,
+        dateModified: metaData.modifiedDate,
+        keywords: metaData.keywords && metaData.keywords.length > 0 ?
+            metaData.keywords.join(', ') : null,
+        publisher: schemaPublisherObject(metaData),
+        author: {
+            '@type': 'Person',
+            name: escapeExpression(data[context].primary_author.name),
+            image: schemaImageObject(metaData.authorImage),
+            url: metaData.authorUrl,
+            sameAs: trimSameAs(data, context),
+            description: data[context].primary_author.metaDescription ?
+                escapeExpression(data[context].primary_author.metaDescription) :
+                null
+        },
+        articleBody: data.post.excerpt,
+        articleSection: data.post.primary_tag ? data.post.primary_tag.name : null
+    } : {
         '@context': 'https://schema.org',
         '@type': 'Article',
         publisher: schemaPublisherObject(metaData),

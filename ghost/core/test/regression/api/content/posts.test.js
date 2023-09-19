@@ -124,6 +124,7 @@ describe('api/endpoints/content/posts', function () {
                 localUtils.API.checkResponse(jsonResponse.posts[0], 'post');
                 localUtils.API.checkResponse(jsonResponse.meta.pagination, 'pagination');
                 _.isBoolean(jsonResponse.posts[0].featured).should.eql(true);
+                _.isBoolean(jsonResponse.posts[0].news).should.eql(false);
 
                 // Default order 'published_at desc' check
                 jsonResponse.posts[0].slug.should.eql('welcome');
@@ -171,6 +172,7 @@ describe('api/endpoints/content/posts', function () {
 
                 localUtils.API.checkResponse(jsonResponse.meta.pagination, 'pagination');
                 _.isBoolean(jsonResponse.posts[0].featured).should.eql(true);
+                _.isBoolean(jsonResponse.posts[0].news).should.eql(false);
 
                 // Default order 'published_at desc' check
                 jsonResponse.posts[0].slug.should.eql('welcome');
@@ -446,6 +448,7 @@ describe('api/endpoints/content/posts', function () {
                     localUtils.API.checkResponse(jsonResponse.posts[0], 'post', null, null);
                     localUtils.API.checkResponse(jsonResponse.meta.pagination, 'pagination');
                     _.isBoolean(jsonResponse.posts[0].featured).should.eql(true);
+                    _.isBoolean(jsonResponse.posts[0].news).should.eql(false);
 
                     const membersOnlySlugs = [
                         'thou-shalt-not-be-seen',

@@ -201,6 +201,22 @@ export default class GhPostSettingsMenu extends Component {
     }
 
     @action
+    toggleNews() {
+        this.post.news = !this.post.news
+
+        // If this is a new post.  Don't save the post.  Defer the save
+        // to the user pressing the save button
+        if (this.post.isNew) {
+            return;
+        }
+
+        this.savePostTask.perform().catch((error) => {
+            this.showError(error);
+            this.post.rollbackAttributes();
+        });
+    }
+
+    @action
     toggleFeatured() {
         this.post.featured = !this.post.featured;
 

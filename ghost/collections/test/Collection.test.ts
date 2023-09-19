@@ -307,21 +307,25 @@ describe('Collection', function () {
         const posts = [{
             id: '0',
             featured: false,
+            news: false,
             published_at: new Date(),
             tags: []
         }, {
             id: '1',
             featured: false,
+            news: false,
             published_at: new Date(),
             tags: []
         }, {
             id: '2',
             featured: false,
+            news: false,
             published_at: new Date(),
             tags: []
         }, {
             id: '3',
             featured: false,
+            news: false,
             published_at: new Date(),
             tags: []
         }];
@@ -351,6 +355,7 @@ describe('Collection', function () {
         const added = await collection.addPost({
             id: '0',
             featured: false,
+            news: false,
             published_at: new Date(),
             tags: []
         });
@@ -361,6 +366,7 @@ describe('Collection', function () {
         const featuredAdded = await collection.addPost({
             id: '1',
             featured: true,
+            news: true,
             published_at: new Date(),
             tags: []
         });
@@ -379,6 +385,7 @@ describe('Collection', function () {
         collection.addPost({
             id: '0',
             featured: false,
+            news: false,
             published_at: new Date(),
             tags: []
 
@@ -441,6 +448,7 @@ describe('Collection', function () {
             const featuredPost = {
                 id: '0',
                 featured: true,
+                news: false,
                 published_at: new Date(),
                 tags: []
             };
@@ -448,6 +456,7 @@ describe('Collection', function () {
             const nonFeaturedPost = {
                 id: '1',
                 featured: false,
+                news: false,
                 published_at: new Date(),
                 tags: []
             };
@@ -466,6 +475,7 @@ describe('Collection', function () {
             const avocadoPost = {
                 id: '0',
                 featured: false,
+                news: false,
                 tags: [{
                     slug: 'avocado'
                 }],
@@ -474,6 +484,7 @@ describe('Collection', function () {
             const nonAvocadoPost = {
                 id: '1',
                 featured: false,
+                news: false,
                 tags: [{
                     slug: 'not-avocado'
                 }],
@@ -494,6 +505,7 @@ describe('Collection', function () {
             const avocadoPost = {
                 id: '0',
                 featured: false,
+                news: false,
                 tags: [{
                     slug: 'avocado'
                 }],
@@ -502,6 +514,7 @@ describe('Collection', function () {
             const nonAvocadoPost = {
                 id: '1',
                 featured: false,
+                news: false,
                 tags: [{
                     slug: 'not-avocado'
                 }],

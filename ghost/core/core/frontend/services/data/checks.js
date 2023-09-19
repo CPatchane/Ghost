@@ -3,7 +3,7 @@ function isPost(jsonData) {
         Object.prototype.hasOwnProperty.call(jsonData, 'title') && Object.prototype.hasOwnProperty.call(jsonData, 'slug');
 }
 
-function isNewsletter(jsonData) {
+function newsletter(jsonData) {
     return Object.prototype.hasOwnProperty.call(jsonData, 'name') &&
         Object.prototype.hasOwnProperty.call(jsonData, 'subscribe_on_signup') && Object.prototype.hasOwnProperty.call(jsonData, 'visibility');
 }
@@ -29,7 +29,7 @@ function isNav(jsonData) {
 
 module.exports = {
     isPost,
-    isNewsletter,
+    newsletter,
     isPage,
     isTag,
     isUser,

@@ -568,7 +568,7 @@ describe('MembersCSVImporter', function () {
             });
 
             stripeUtilsStub.forceStripeSubscriptionToProduct.resolves({
-                isNewStripePrice: true,
+                newstripePrice: true,
                 stripePriceId: newStripePriceId
             });
 

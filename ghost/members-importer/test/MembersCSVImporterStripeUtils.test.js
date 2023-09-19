@@ -277,7 +277,7 @@ describe('MembersCSVImporterStripeUtils', function () {
             }, OPTIONS);
 
             result.stripePriceId.should.equal(stripeCustomerSubscriptionItem.price.id);
-            result.isNewStripePrice.should.be.false();
+            result.newstripePrice.should.be.false();
 
             stripeAPIServiceStub.updateSubscriptionItemPrice.calledOnce.should.be.false();
         });
@@ -298,7 +298,7 @@ describe('MembersCSVImporterStripeUtils', function () {
             }, OPTIONS);
 
             result.stripePriceId.should.equal(GHOST_PRODUCT_STRIPE_PRICE_ID);
-            result.isNewStripePrice.should.be.false();
+            result.newstripePrice.should.be.false();
 
             stripeAPIServiceStub.updateSubscriptionItemPrice.calledOnce.should.be.true();
             stripeAPIServiceStub.updateSubscriptionItemPrice.calledWithExactly(
@@ -339,7 +339,7 @@ describe('MembersCSVImporterStripeUtils', function () {
 
             // Assert new price was created
             result.stripePriceId.should.equal(NEW_STRIPE_PRICE_ID);
-            result.isNewStripePrice.should.be.true();
+            result.newstripePrice.should.be.true();
 
             // Assert subscription was updated
             stripeAPIServiceStub.updateSubscriptionItemPrice.calledOnce.should.be.true();

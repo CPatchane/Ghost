@@ -5,6 +5,7 @@ type PostEditData = {
         title: string;
         status: string;
         featured: boolean;
+        news: boolean;
         published_at: Date;
         tags: Array<{slug: string}>;
     },
@@ -13,6 +14,7 @@ type PostEditData = {
         title: string;
         status: string;
         featured: boolean;
+        news: boolean;
         published_at: Date;
         tags: Array<{slug: string}>;
     }

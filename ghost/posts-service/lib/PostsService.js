@@ -157,6 +157,7 @@ class PostsService {
                 await this.collectionsService.addPostToCollection(collectionId, {
                     id: frame.options.id,
                     featured: frame.data.posts[0].featured,
+                    news: frame.data.posts[0].news,
                     published_at: frame.data.posts[0].published_at
                 });
             }
@@ -245,6 +246,12 @@ class PostsService {
             DomainEvents.dispatch(PostsBulkUnpublishedEvent.create(updateResult.editIds));
 
             return updateResult;
+        }
+        if (data.action === 'makeNews') {
+            return await this.#updatePosts({news: true}, {filter: options.filter, context: options.context, actionName: 'makeNews'});
+        }
+        if (data.action === 'unmakeNews') {
+            return await this.#updatePosts({news: false}, {filter: options.filter, context: options.context, actionName: 'unmakeNews'});
         }
         if (data.action === 'feature') {
             const updateResult = await this.#updatePosts({featured: true}, {filter: options.filter, context: options.context, actionName: 'featured'});
@@ -586,6 +593,7 @@ class PostsService {
                 'plaintext',
                 'feature_image',
                 'featured',
+                'news',
                 'type',
                 'locale',
                 'visibility',

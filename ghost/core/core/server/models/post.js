@@ -92,6 +92,7 @@ Post = ghostBookshelf.Model.extend({
             uuid: uuid.v4(),
             status: 'draft',
             featured: false,
+            news: false,
             type: 'post',
             tiers,
             visibility: visibility,

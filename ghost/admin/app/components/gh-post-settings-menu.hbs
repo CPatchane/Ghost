@@ -150,7 +150,29 @@
                                     {{/liquid-if}}
                                 </div>
                             </li>
+
                         {{/if}}
+                        <li class="nav-list-item">
+                            <div class="for-switch x-small">
+                                <label class="switch" for="news" {{action "toggleNews" bubbles="false"}}>
+                                    <span>
+                                        {{svg-jar "content" class="feature"}}
+                                        This is a news article
+                                    </span>
+                                    <span class="gh-toggle-is-news">
+                                        <input
+                                            id="news"
+                                            type="checkbox"
+                                            checked={{this.post.news}}
+                                            class="gh-input post-settings-is-news"
+                                            onclick={{action (mut this.post.news) value="target.checked"}}
+                                            data-test-checkbox="is-news"
+                                        >
+                                        <span class="input-toggle-component"></span>
+                                    </span>
+                                </label>
+                            </div>
+                        </li>
                         {{#unless this.session.user.isAuthorOrContributor}}
                             <li class="nav-list-item">
                                 <div class="for-switch x-small">

@@ -27,6 +27,7 @@ const initPostsRepository = async (posts: any): Promise<PostsRepositoryInMemory>
             title: post.title,
             slug: post.slug,
             featured: post.featured,
+            news: post.news,
             published_at: post.published_at?.toISOString(),
             tags: post.tags,
             deleted: false
@@ -328,6 +329,7 @@ describe('CollectionsService', function () {
                         title: 'Post 1',
                         slug: 'post-1',
                         featured: false,
+                        news: false,
                         tags: [{slug: 'to-be-deleted'}, {slug: 'other-tag'}],
                         created_at: new Date('2023-03-15T07:19:07.447Z'),
                         updated_at: new Date('2023-03-15T07:19:07.447Z'),
@@ -338,6 +340,7 @@ describe('CollectionsService', function () {
                         title: 'Post 2',
                         slug: 'post-2',
                         featured: false,
+                        news: false,
                         tags: [{slug: 'to-be-deleted'}, {slug: 'other-tag'}],
                         created_at: new Date('2023-04-05T07:20:07.447Z'),
                         updated_at: new Date('2023-04-05T07:20:07.447Z'),
@@ -401,6 +404,7 @@ describe('CollectionsService', function () {
                         title: 'Post 1',
                         slug: 'post-1',
                         featured: false,
+                        news: false,
                         tags: [{slug: 'existing-tag'}],
                         created_at: new Date('2023-03-15T07:19:07.447Z'),
                         updated_at: new Date('2023-03-15T07:19:07.447Z'),
@@ -411,6 +415,7 @@ describe('CollectionsService', function () {
                         title: 'Post 2',
                         slug: 'post-2',
                         featured: false,
+                        news: false,
                         tags: [],
                         created_at: new Date('2023-04-05T07:20:07.447Z'),
                         updated_at: new Date('2023-04-05T07:20:07.447Z'),
@@ -602,6 +607,7 @@ describe('CollectionsService', function () {
                 const newFeaturedPost: CollectionPost & {deleted: false} = {
                     id: 'post-featured',
                     featured: false,
+                    news: false,
                     published_at: new Date('2023-03-16T07:19:07.447Z'),
                     tags: [],
                     deleted: false
@@ -611,11 +617,14 @@ describe('CollectionsService', function () {
                     id: newFeaturedPost.id,
                     current: {
                         id: newFeaturedPost.id,
-                        featured: false
+                        featured: false,
+                        news: false
                     },
                     previous: {
                         id: newFeaturedPost.id,
-                        featured: true
+                        featured: true,
+                        news: false
+
                     }
                 });
 
@@ -631,11 +640,13 @@ describe('CollectionsService', function () {
                     id: newFeaturedPost.id,
                     current: {
                         id: newFeaturedPost.id,
-                        featured: true
+                        featured: true,
+                        news: false
                     },
                     previous: {
                         id: newFeaturedPost.id,
-                        featured: false
+                        featured: false,
+                        news: false
                     }
                 });
 
@@ -656,12 +667,14 @@ describe('CollectionsService', function () {
                         id: 'unique-post-id',
                         status: 'scheduled',
                         featured: true,
+                        news: false,
                         tags: ['they', 'do', 'not', 'change']
                     },
                     previous: {
                         id: 'unique-post-id',
                         status: 'published',
                         featured: true,
+                        news: false,
                         tags: ['they', 'do', 'not', 'change']
                     }
                 });

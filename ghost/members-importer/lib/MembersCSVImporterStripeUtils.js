@@ -133,7 +133,7 @@ module.exports = class MembersCSVImporterStripeUtils {
         });
 
         let stripePriceId;
-        let isNewStripePrice = false;
+        let newstripePrice = false;
 
         if (!ghostProductPrice) {
             // If there is not a matching price, create one on the associated Stripe product using the existing
@@ -157,7 +157,7 @@ module.exports = class MembersCSVImporterStripeUtils {
             );
 
             stripePriceId = newStripePrice.id;
-            isNewStripePrice = true;
+            newstripePrice = true;
         } else {
             // If there is a matching price, and the subscription is not already using it,
             // update the subscription to use it
@@ -176,7 +176,7 @@ module.exports = class MembersCSVImporterStripeUtils {
 
         return {
             stripePriceId,
-            isNewStripePrice
+            newstripePrice
         };
     }
 

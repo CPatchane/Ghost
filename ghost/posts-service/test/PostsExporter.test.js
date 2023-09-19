@@ -43,6 +43,7 @@ describe('PostsExporter', function () {
                 published_at: new Date(),
                 updated_at: new Date(),
                 featured: false,
+                news: false,
                 loaded: ['tiers','tags','authors','email'],
                 email: createModel({
                     feedback_enabled: true,

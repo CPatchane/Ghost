@@ -5,7 +5,7 @@ describe('Checks', function () {
     it('methods', function () {
         Object.keys(checks).should.eql([
             'isPost',
-            'isNewsletter',
+            'newsletter',
             'isPage',
             'isTag',
             'isUser',
@@ -27,11 +27,11 @@ describe('Checks', function () {
         checks.isPage({title: 'Test', show_title_and_feature_image: true}).should.eql(true);
     });
 
-    it('isNewsletter', function () {
-        checks.isNewsletter({}).should.eql(false);
-        checks.isNewsletter({name: 'Test'}).should.eql(false);
-        checks.isNewsletter({name: 'Test', visibility: 'members', subscribe_on_signup: true}).should.eql(true);
-        checks.isNewsletter({name: 'Test', visibility: 'paid', subscribe_on_signup: false}).should.eql(true);
+    it('newsletter', function () {
+        checks.newsletter({}).should.eql(false);
+        checks.newsletter({name: 'Test'}).should.eql(false);
+        checks.newsletter({name: 'Test', visibility: 'members', subscribe_on_signup: true}).should.eql(true);
+        checks.newsletter({name: 'Test', visibility: 'paid', subscribe_on_signup: false}).should.eql(true);
     });
 
     it('isTag', function () {

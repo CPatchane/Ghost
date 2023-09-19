@@ -105,6 +105,7 @@ describe('Actions API', function () {
             .send({
                 posts: [{
                     featured: true,
+                    news: false,
                     updated_at: postUpdatedAt
                 }]
             })

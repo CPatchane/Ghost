@@ -127,6 +127,12 @@
     height: 20px;
 }
 
+.gh-post-history-footer .gh-toggle-is-news {
+    position: relative;
+    width: 34px;
+    height: 20px;
+}
+
 .gh-post-history-footer-inner {
     position: sticky;
     -webkit-position: sticky;

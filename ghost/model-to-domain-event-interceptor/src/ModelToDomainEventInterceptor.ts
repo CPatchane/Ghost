@@ -61,6 +61,7 @@ export class ModelToDomainEventInterceptor {
             event = PostAddedEvent.create({
                 id: data.id,
                 featured: data.attributes.featured,
+                news: data.attributes.news,
                 status: data.attributes.status,
                 published_at: data.attributes.published_at
             });
@@ -73,6 +74,7 @@ export class ModelToDomainEventInterceptor {
                     title: data.attributes.title,
                     status: data.attributes.status,
                     featured: data.attributes.featured,
+                    news: data.attributes.news,
                     published_at: data.attributes.published_at,
                     // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     tags: data.relations?.tags?.models.map((tag: any) => ({
@@ -86,6 +88,7 @@ export class ModelToDomainEventInterceptor {
                     title: data._previousAttributes?.title,
                     status: data._previousAttributes?.status,
                     featured: data._previousAttributes?.featured,
+                    news: data._previousAttributes?.news,
                     published_at: data._previousAttributes?.published_at,
                     // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     tags: data._previousRelations?.tags?.models.map((tag: any) => ({

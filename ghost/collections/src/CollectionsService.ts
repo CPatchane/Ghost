@@ -56,6 +56,7 @@ type CollectionPostListItemDTO = {
     slug: string;
     title: string;
     featured: boolean;
+    news: boolean;
     featured_image?: string;
     created_at: Date;
     updated_at: Date;
@@ -273,12 +274,14 @@ export class CollectionsService {
         const current = {
             id: postEditEvent.current.id,
             featured: postEditEvent.current.featured,
+            news: postEditEvent.current.news,
             published_at: postEditEvent.current.published_at,
             tags: postEditEvent.current.tags
         };
         const previous = {
             id: postEditEvent.previous.id,
             featured: postEditEvent.previous.featured,
+            news: postEditEvent.current.news,
             published_at: postEditEvent.previous.published_at,
             tags: postEditEvent.previous.tags
         };
